@@ -1,6 +1,9 @@
 /*$baseFontFamily: Oxygen;
 @import url(http://fonts.goodleapis.com/css?family=Oxygen);
 */
+$navbarBackgroundHighLightL: #1a3977;
+$navbarBackground: #234996;
+
 @import 'bootstrap';
 
 body{
@@ -17,4 +20,27 @@ body{
 	a {
 		color:$gray;
 	 }
+}
+
+.navbar-inner {
+	background-image: -webkit-linear-gradient(top, rgb(34, 148, 213), #234996);
+}
+
+.navbar .brand {
+float: left;
+display: block;
+padding: 10px 20px 10px;
+margin-left: -20px;
+font-size: 20px;
+font-weight: 600;
+color: rgb(248, 245, 245);
+text-shadow: 0 0px 0 white;
+}
+
+.navbar .nav > li > a {
+float: none;
+padding: 10px 15px 10px;
+color: rgb(255, 255, 255);
+text-decoration: none;
+text-shadow: 0 0px 0 white;
 }
