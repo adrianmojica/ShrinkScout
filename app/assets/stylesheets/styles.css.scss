@@ -7,7 +7,8 @@ $navbarBackground: #234996;
 @import 'bootstrap';
 
 body{
-	padding-top: 60px
+	padding-top: 60px;
+	background-image:url('maze_white.png');
 }
 
 @import 'bootstrap-responsive';
@@ -43,4 +44,12 @@ padding: 10px 15px 10px;
 color: rgb(255, 255, 255);
 text-decoration: none;
 text-shadow: 0 0px 0 white;
+}
+
+.carousel .item {
+height: 500px;
+}
+
+.container_carrousel{
+	background-color: #245296;
 }
