@@ -1,3 +1,9 @@
+<% if user_signed_in? %>
+  
+  <h1> You're Logged in </h1>
+
+<% else %>
+
 <div class="container_carrousel">
   <div id="myCarousel" class="carousel slide">
         <div class="carousel-inner">
@@ -7,7 +13,7 @@
               <div class="carousel-caption">
                 <h1></h1>
                 <p class="lead"></p>
-                <a class="btn btn-large btn-primary" href="#">Learn more</a>
+                <%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
               </div>
             </div>
           </div>
@@ -46,3 +52,4 @@
         <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
   </div>
 </div>
+<% end %>
