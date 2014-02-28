@@ -1,5 +1,8 @@
 class Pin < ActiveRecord::Base
-  attr_accessible :description, :image, :address
+  attr_accessible :description, :image, :address, :latitude, :longitude
+
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed?
 
 
   validates :description, presence: true

@@ -1,19 +1,85 @@
-<div class="row">
-	<div class="span6 offset3">
-		<div class="well">
-			<%= image_tag @pin.image %>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWl33q-z60WJv1ILeqlceaxWOBVRFqCLg&sensor=false"></script>
+<script type="text/javascript">
+
+	var map;
+	var latitude = <%= @pin.latitude %>;
+	var longitude = <%= @pin.longitude %>;
+	function initialize() {
+  var mapOptions = {
+    zoom: 10
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+  // Try HTML5 geolocation
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude,
+                                       position.coords.longitude);
+
+      var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: pos,
+        content: 'You Are Here'
+      });
+
+      map.setCenter(pos);
+    }, function() {
+      handleNoGeolocation(true);
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
+}
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
+
+  var options = {
+    map: map,
+    position: new google.maps.LatLng(latitude, longitude),
+    content: content
+  };
+
+  var infowindow = new google.maps.InfoWindow(options);
+  map.setCenter(options.position);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+<div class="well">
+	<div class="row-fluid">
+		<div class="span12 first">
+			<div class="span6 first">
+				<div style="padding-left: 50px;">
+					<%= image_tag @pin.image, :class => "img-rounded" %>
+				</div>
+			</div>
+			<div class="span6">
+					<div id="map-canvas" style="width: 550px; height: 320px;"></div>
+			</div>
+		</div>
+		<div class="span12">
 			<p>
 			 <%= @pin.description %>
 			</p>
 			<p>
 			  <%= @pin.user.name %>
 			</p>
+		</div>
+		<div class="span12">
 			<% if current_user == @pin.user %>
-			<%= link_to 'Edit', edit_pin_path(@pin) %> |
+			<%= link_to 'Edit', edit_pin_path(@pin), class: "btn btn-info", style: "color: white; font-weight:bold;" %>
 			<% end %>
-			<%= link_to 'Back', pins_path %>
+			<%= link_to 'Back', pins_path, class: "btn btn-primary", style: "color: white; font-weight:bold;" %>
 		</div>
 	</div>
+	
 </div>
-
 
