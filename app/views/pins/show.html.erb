@@ -1,9 +1,24 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWl33q-z60WJv1ILeqlceaxWOBVRFqCLg&sensor=false"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+
+var geocoder = new google.maps.Geocoder();
+var address = <%= @pin.address %>;
+
+geocoder.geocode( { 'address': address}, function(results, status) {
+
+if (status == google.maps.GeocoderStatus.OK) {
+    var latitude = results[0].geometry.location.latitude;
+    var longitude = results[0].geometry.location.longitude;
+    alert(latitude);
+    } 
+}); 
+</script>
 <script type="text/javascript">
 
 	var map;
-	var latitude = <%= @pin.latitude %>;
-	var longitude = <%= @pin.longitude %>;
+	// var latitude = <%= @pin.latitude %>;
+	// var longitude = <%= @pin.longitude %>;
 	function initialize() {
   var mapOptions = {
     zoom: 10
@@ -20,7 +35,7 @@
       var infowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
-        content: 'You Are Here'
+        content: 'Shrink!'
       });
 
       map.setCenter(pos);
