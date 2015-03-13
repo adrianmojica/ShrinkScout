@@ -1,15 +1,25 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form-horizontal box_large'}) do |f| %>
+<div class="pad5"><h2>Sign up</h2></div>
+<div class="padT">
+  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form-horizontal box_large'}) do |f| %>
   <%= f.error_notification %>
+  <div class="padT">
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+  </div>
 
-  <%= f.input :name %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-
-
-  <div class="form-actions "><%= f.submit "Sign up", class: "btn btn-primary" %></div>
+  <div class="form-actionsRedo span12">
+    <div class="span1">
+      <%= f.submit "Sign up", class: "btn btn-primary" %>
+    </div>
+    <div class="span1">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+</div>
+
+
+

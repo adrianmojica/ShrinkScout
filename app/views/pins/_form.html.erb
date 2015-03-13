@@ -1,5 +1,7 @@
-<%= simple_form_for(@pin, html: { class: "form-horizontal box_large"}) do |f| %>
+<div class="">
+  <%= simple_form_for(@pin, html: { class: "form-horizontal box_large"}) do |f| %>
   <%= f.error_notification %>
+  <div class="padT">
   <%= f.full_error :image_file_size, class: "alert alert-error" %>
   <%= f.full_error :image_content_type, class: "alert alert-error" %>
   
@@ -7,6 +9,8 @@
     <%= f.input :description, as: :text, input_html: { rows:"3" } %>
 
     <%= f.input :address %>
+  </div>
     <div class="form-actions"> <%= f.button :submit, class: "btn btn-primary" %> </div>
   </div>
 <% end %>
+</div>
