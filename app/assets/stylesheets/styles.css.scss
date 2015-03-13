@@ -2519,6 +2519,31 @@ text-shadow: 0 1px 0 white;
   background-position: -456px -144px;
 }
 
+.box_large{
+ margin:5px;
+ padding:5px;
+ background-color: rgba(255, 255, 255, 0.7);
+ font-size: 11px;
+ line-height: 1.4em;
+ float:left;
+ -webkit-border-radius:5px;
+ -moz-border-radius:5px;
+ border-radius: 5px;
+ box-shadow: 1px 1px 10px #444;
+ width: 100%;
+
+}
+
+.about {
+	font-size: 14px;
+	line-height: 2;
+}
+
+.highlight {
+	color:#2A88CF;
+	font-weight: bold;
+}
+
 /* JQUERY MASONRY */
 .box {
  margin:5px;
@@ -2549,5 +2574,12 @@ text-shadow: 0 1px 0 white;
 
 .description {
 	margin:10px 0 5px;
+
+}
+
+.form-actionsRedo {
+padding: 19px 20px 20px;
+margin-top: 20px;
+margin-bottom: 20px;
 
 }
